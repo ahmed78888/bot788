@@ -1,9 +1,9 @@
 from pyrogram import filters
 
-from MatrixMusic import YouTube, app
-from MatrixMusic.utils.channelplay import get_channeplayCB
-from MatrixMusic.utils.decorators.language import languageCB
-from MatrixMusic.utils.stream.stream import stream
+from AarohiX import YouTube, app
+from AarohiX.utils.channelplay import get_channeplayCB
+from AarohiX.utils.decorators.language import languageCB
+from AarohiX.utils.stream.stream import stream
 from config import BANNED_USERS
 
 
@@ -56,5 +56,5 @@ async def play_live_stream(client, CallbackQuery, _):
             err = e if ex_type == "AssistantErr" else _["general_2"].format(ex_type)
             return await mystic.edit_text(err)
     else:
-        return await mystic.edit_text("قم بتشغيل المكالمة أولاً ..🚦")
+        return await mystic.edit_text("» ɴᴏᴛ ᴀ ʟɪᴠᴇ sᴛʀᴇᴀᴍ.")
     await mystic.delete()

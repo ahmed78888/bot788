@@ -2,16 +2,16 @@ import asyncio
 from pyrogram import filters
 from pyrogram.errors import FloodWait
 from pyrogram.raw import types
-from MatrixMusic import app
+from AarohiX import app
 import random
 from datetime import datetime
 import requests
 import pytz
-from MatrixMusic.core.call import Zelzaly
+from AarohiX.core.call import Dil
 from pytgcalls import PyTgCalls, StreamType
 from pytgcalls.types.input_stream import AudioPiped, AudioVideoPiped
-from MatrixMusic.core.call import Zelzaly
-from MatrixMusic.utils.database import *
+from AarohiX.core.call import Dil
+from AarohiX.utils.database import *
 from pytgcalls.exceptions import (NoActiveGroupCall,TelegramServerError,AlreadyJoinedError)
 from pyrogram.errors import (
     ChatAdminRequired,
@@ -40,12 +40,12 @@ async def azaan(c, msg):
       
 async def kill():
   for i in chat:
-    await Anony.force_stop_stream(i)
+    await Dil.force_stop_stream(i)
 
 
 async def play(i):
-  assistant = await group_assistant(Anony,i)
-  file_path = "./MatrixMusic/assets/azan.m4a"
+  assistant = await group_assistant(Dil,i)
+  file_path = "./AarohiX/assets/azan.m4a"
   stream = AudioPiped(file_path, audio_parameters=HighQualityAudio())
   try:
       await assistant.join_group_call(
@@ -55,7 +55,7 @@ async def play(i):
       )
   except NoActiveGroupCall:
     try:
-        await Zelzaly.join_assistant(i,i)
+        await Dil.join_assistant(i,i)
     except Exception as e:
        await app.send_message(i,f"{e}")
   except TelegramServerError:
@@ -95,9 +95,7 @@ def prayer_time():
          return "العشاء"
    except Exception as e:
        asyncio.sleep(5)
-       print(e)  
-#لالالالا
-# جتة مواعيد الصلاة الي تحت دي سارقها من هلال علشان م بعرف استخدم مكتبة ال time ف انضموا لقناته @SOURCEFR3ON
+       print(e) 
 
 async def azkar():
   while not await asyncio.sleep(2):
@@ -109,5 +107,3 @@ async def azkar():
        await play(i)
      await asyncio.sleep(174)
      await kill()
-#مواعيد الصلاه بس الي سارقها بقيت الكود كتابتي هي اكيد كتابه معاقه بس عادي م مهم رايك انا مبسوط بيها يوزري للاعمال الخاصه @z0hary
-     

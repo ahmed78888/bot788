@@ -2,7 +2,7 @@ import asyncio
 import pyrogram
 import random
 import datetime
-from MatrixMusic import app
+from AarohiX import app
 from pyrogram import Client
 from pyrogram import filters
 from pyrogram.types import Message
@@ -17,7 +17,7 @@ from pyrogram.types import (InlineKeyboardButton,
 
 
 
-@app.on_message(filters.regex(r"حساب العمر"))
+@app.on_message(filters.regex(r'حساب العمر'))
 async def calculate_age(client, message):
     try:
         birth_date = datetime.datetime.strptime(message.text.split(" ")[2], "%d-%m-%Y")
